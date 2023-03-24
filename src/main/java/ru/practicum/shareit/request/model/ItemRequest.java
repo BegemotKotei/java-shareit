@@ -10,11 +10,11 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class ItemRequest {
 
-    private final Long id;
+    private Long id;
 
-    private final String description;
+    private String description;
 
-    private final User requester;
+    private User requester;
 
-    private final LocalDateTime created;
+    private LocalDateTime created;
 }

@@ -11,13 +11,13 @@ public class Booking {
 
     private Long id;
 
-    private final LocalDateTime start;
+    private LocalDateTime start;
 
-    private final LocalDateTime end;
+    private LocalDateTime end;
 
-    private final Item item;
+    private Item item;
 
-    private final User booker;
+    private User booker;
 
     private Status status;
 }

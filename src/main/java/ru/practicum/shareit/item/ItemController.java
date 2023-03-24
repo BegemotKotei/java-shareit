@@ -2,6 +2,7 @@ package ru.practicum.shareit.item;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,37 +29,37 @@ public class ItemController {
     private final UserService userService;
 
     @PostMapping
-    public ItemDto createItem(@RequestBody @Valid ItemDto itemDto,
-                              @RequestHeader("X-Sharer-User-Id") Long userId) {
+    public ResponseEntity<ItemDto> createItem(@RequestBody @Valid ItemDto itemDto,
+                                              @RequestHeader("X-Sharer-User-Id") Long userId) {
         log.info("POST /items : user ID {} creates item from DTO - {}.", userId, itemDto);
-        return itemService.createItem(userService.getUser(userId), itemDto);
+        return ResponseEntity.ok().body(itemService.createItem(userService.getUser(userId), itemDto));
     }
 
     @PatchMapping("/{itemId}")
-    public ItemDto updateItem(@PathVariable("itemId") Long itemId,
-                              @RequestBody ItemDto itemDto,
-                              @RequestHeader("X-Sharer-User-Id") Long userId) {
+    public ResponseEntity<ItemDto> updateItem(@PathVariable("itemId") Long itemId,
+                                              @RequestBody ItemDto itemDto,
+                                              @RequestHeader("X-Sharer-User-Id") Long userId) {
         log.info("PATCH /items/{} : update item by ID from user ID {}, item DTO - {}.", itemId, userId, itemDto);
-        return itemService.updateItem(itemId, itemDto, userId);
+        return ResponseEntity.ok().body(itemService.updateItem(itemId, itemDto, userId));
     }
 
     @GetMapping("/{itemId}")
-    public ItemDto getItem(@PathVariable("itemId") Long itemId,
-                           @RequestHeader("X-Sharer-User-Id") Long userId) {
+    public ResponseEntity<ItemDto> getItem(@PathVariable("itemId") Long itemId,
+                                           @RequestHeader("X-Sharer-User-Id") Long userId) {
         log.info("GET /items/{} : get item by ID from user ID {}.", itemId, userId);
-        return itemService.getItem(itemId, userId);
+        return ResponseEntity.ok().body(itemService.getItem(itemId, userId));
     }
 
     @GetMapping
-    public List<ItemDto> getItemsByUser(@RequestHeader("X-Sharer-User-Id") Long userId) {
+    public ResponseEntity<List<ItemDto>> getItemsByUser(@RequestHeader("X-Sharer-User-Id") Long userId) {
         log.info("GET /items : get list of items from user ID {}.", userId);
-        return itemService.getItemsByUser(userId);
+        return ResponseEntity.ok().body(itemService.getItemsByUser(userId));
     }
 
     @GetMapping("/search")
-    public List<ItemDto> getAvailableItems(@RequestHeader("X-Sharer-User-Id") Long userId,
-                                           @RequestParam String text) {
+    public ResponseEntity<List<ItemDto>> getAvailableItems(@RequestHeader("X-Sharer-User-Id") Long userId,
+                                                           @RequestParam String text) {
         log.info("GET /items : get list of available items of user ID {} with text {}.", userId, text);
-        return itemService.getAvailableItems(userId, text);
+        return ResponseEntity.ok().body(itemService.getAvailableItems(userId, text));
     }
 }
