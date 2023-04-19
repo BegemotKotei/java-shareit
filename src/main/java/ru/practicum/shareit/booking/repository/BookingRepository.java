@@ -10,43 +10,42 @@ import ru.practicum.shareit.booking.model.Status;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface BookingRepository extends JpaRepository<Booking, Long> {
 
-    Optional<List<Booking>> findAllByBooker_IdOrderByStartDesc(Long userId);
+    List<Booking> findAllByBooker_IdOrderByStartDesc(Long userId);
 
-    Optional<List<Booking>> findAllByBooker_IdAndStartIsAfter(Long userId, LocalDateTime start, Sort sort);
+    List<Booking> findAllByBooker_IdAndStartIsAfter(Long userId, LocalDateTime start, Sort sort);
 
-    Optional<List<Booking>> findAllByBooker_IdAndStartIsBeforeAndEndIsAfter(
+    List<Booking> findAllByBooker_IdAndStartIsBeforeAndEndIsAfter(
             Long userId, LocalDateTime start, LocalDateTime end, Sort sort);
 
-    Optional<List<Booking>> findAllByBooker_IdAndEndIsBefore(Long userId, LocalDateTime start, Sort sort);
+    List<Booking> findAllByBooker_IdAndEndIsBefore(Long userId, LocalDateTime start, Sort sort);
 
-    Optional<List<Booking>> findAllByBooker_IdAndStatus(Long userId, Status status);
+    List<Booking> findAllByBooker_IdAndStatus(Long userId, Status status);
 
-    Optional<List<Booking>> findAllByItem_Owner_IdOrderByStartDesc(Long userId);
+    List<Booking> findAllByItem_Owner_IdOrderByStartDesc(Long userId);
 
-    Optional<List<Booking>> findAllByItem_Owner_IdAndStartIsAfter(Long userId, LocalDateTime start, Sort sort);
+    List<Booking> findAllByItem_Owner_IdAndStartIsAfter(Long userId, LocalDateTime start, Sort sort);
 
-    Optional<List<Booking>> findAllByItem_Owner_IdAndStartIsBeforeAndEndIsAfter(
+    List<Booking> findAllByItem_Owner_IdAndStartIsBeforeAndEndIsAfter(
             Long userId, LocalDateTime start, LocalDateTime end, Sort sort);
 
-    Optional<List<Booking>> findAllByItem_Owner_IdAndEndIsBefore(Long userId, LocalDateTime start, Sort sort);
+    List<Booking> findAllByItem_Owner_IdAndEndIsBefore(Long userId, LocalDateTime start, Sort sort);
 
-    Optional<List<Booking>> findAllByItem_Owner_IdAndStatus(Long userId, Status status);
+    List<Booking> findAllByItem_Owner_IdAndStatus(Long userId, Status status);
 
-    Optional<Booking> findFirstByItem_IdAndItem_Owner_IdAndStartIsBefore(
+    Booking findFirstByItem_IdAndItem_Owner_IdAndStartIsBefore(
             Long itemId, Long userId, LocalDateTime end, Sort sort);
 
-    Optional<List<Booking>> findFirstByItem_IdInAndItem_Owner_IdAndStartIsBefore(
+    List<Booking> findFirstByItem_IdInAndItem_Owner_IdAndStartIsBefore(
             List<Long> itemsId, Long userId, LocalDateTime end, Sort sort);
 
-    Optional<Booking> findFirstByItem_IdAndItem_Owner_IdAndStartIsAfterAndStatusIsNotAndStatusIsNot(
+    Booking findFirstByItem_IdAndItem_Owner_IdAndStartIsAfterAndStatusIsNotAndStatusIsNot(
             Long itemId, Long userId, LocalDateTime start, Status status1, Status status2, Sort sort);
 
-    Optional<List<Booking>> findFirstByItem_IdInAndItem_Owner_IdAndStartIsAfterAndStatusIsNotAndStatusIsNot(
+    List<Booking> findFirstByItem_IdInAndItem_Owner_IdAndStartIsAfterAndStatusIsNotAndStatusIsNot(
             List<Long> itemsId, Long userId, LocalDateTime start, Status status1, Status status2, Sort sort);
 
     @Query("SELECT (COUNT(b) > 0) " +

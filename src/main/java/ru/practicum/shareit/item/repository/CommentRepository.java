@@ -12,7 +12,7 @@ import java.util.Optional;
 @Repository
 public interface CommentRepository extends JpaRepository<Comment, Long> {
 
-    Optional<List<Comment>> findAllByItem_Id(Long itemId);
+    List<Comment> findAllByItem_Id(Long itemId);
 
     @Query("SELECT c " +
             "FROM Comment c " +
