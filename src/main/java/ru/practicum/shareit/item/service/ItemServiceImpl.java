@@ -79,7 +79,7 @@ public class ItemServiceImpl implements ItemService {
                 .orElseThrow(() -> new EntityNotFoundException("Item with ID " + itemId + " does not exist"));
         LocalDateTime now = LocalDateTime.now();
 
-        List<CommentDto> comments = commentRepository.findAllByItem_Id(item.getId())
+        List<CommentDto> comments = commentRepository.findAllByItem_Id(item.getId()).orElseThrow()
                 .stream()
                 .map(mapper::toCommentDto)
                 .collect(Collectors.toList());
@@ -89,7 +89,7 @@ public class ItemServiceImpl implements ItemService {
                         itemId,
                         userId,
                         now,
-                        SORT_DESC));
+                        SORT_DESC).orElseThrow());
 
         InfoBookingDto nextBooking = mapper.toInfoBookingDto(bookingRepository
                 .findFirstByItem_IdAndItem_Owner_IdAndStartIsAfterAndStatusIsNotAndStatusIsNot(
@@ -98,7 +98,7 @@ public class ItemServiceImpl implements ItemService {
                         now,
                         Status.CANCELED,
                         Status.REJECTED,
-                        SORT_ASC));
+                        SORT_ASC).orElseThrow());
 
         return mapper.toAnswerItemDto(item, lastBooking, nextBooking, comments);
     }
@@ -110,7 +110,7 @@ public class ItemServiceImpl implements ItemService {
         }
 
         LocalDateTime now = LocalDateTime.now();
-        List<Item> items = itemRepository.findByOwner_Id(userId);
+        List<Item> items = itemRepository.findByOwner_Id(userId).orElseThrow();
         List<Long> itemsId = items
                 .stream()
                 .map(Item::getId)
@@ -122,7 +122,7 @@ public class ItemServiceImpl implements ItemService {
                         itemsId,
                         userId,
                         now,
-                        SORT_DESC);
+                        SORT_DESC).orElseThrow();
 
         List<Booking> allNextBookings = bookingRepository
                 .findFirstByItem_IdInAndItem_Owner_IdAndStartIsAfterAndStatusIsNotAndStatusIsNot(
@@ -131,7 +131,7 @@ public class ItemServiceImpl implements ItemService {
                         now,
                         Status.CANCELED,
                         Status.REJECTED,
-                        SORT_ASC);
+                        SORT_ASC).orElseThrow();
 
         Map<Long, Booking> lastBookings = new HashMap<>();
         Map<Long, Booking> nextBookings = new HashMap<>();
