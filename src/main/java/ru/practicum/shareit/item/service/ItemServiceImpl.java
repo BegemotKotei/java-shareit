@@ -110,7 +110,7 @@ public class ItemServiceImpl implements ItemService {
         }
 
         LocalDateTime now = LocalDateTime.now();
-        List<Item> items = itemRepository.findByOwner_Id(userId).orElseThrow();
+        List<Item> items = itemRepository.findByOwner_Id(userId);
         List<Long> itemsId = items
                 .stream()
                 .map(Item::getId)

@@ -7,12 +7,11 @@ import org.springframework.stereotype.Repository;
 import ru.practicum.shareit.item.model.Item;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface ItemRepository extends JpaRepository<Item, Long> {
 
-    Optional<List<Item>> findByOwner_Id(Long userId);
+    List<Item> findByOwner_Id(Long userId);
 
     @Query("SELECT i " +
             "FROM Item i " +
