@@ -1,6 +1,7 @@
 package ru.practicum.shareit.request.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -22,6 +23,7 @@ import java.time.LocalDateTime;
 @Table(name = "requests")
 @Getter
 @Setter
+@Builder
 @ToString
 @EqualsAndHashCode
 @RequiredArgsConstructor
