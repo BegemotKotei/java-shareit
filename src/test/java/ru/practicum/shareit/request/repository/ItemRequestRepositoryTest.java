@@ -33,7 +33,7 @@ class ItemRequestRepositoryTest {
     private ItemRequest itemRequest3;
 
     @BeforeAll
-     void beforeAll() {
+    void beforeAll() {
         requester1 = new User(1L, "user1", "mail1@ya.ru");
         requester2 = new User(2L, "user2", "mail2@ya.ru");
         userRepository.save(requester1);
