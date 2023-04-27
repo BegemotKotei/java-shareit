@@ -34,34 +34,30 @@ class BookingRepositoryTest {
     @Autowired
     private ItemRequestRepository itemRequestRepository;
 
-    User user;
-    User user2;
-    User owner;
-    Item item;
-    ItemRequest request;
-    Booking booking;
-    Booking booking2;
+    private User user;
+    private User user2;
+    private Item item;
 
     @BeforeAll
     public void beforeAll() {
         user = new User(1L, "user", "user@ya.ru");
         user2 = new User(3L, "user2", "user2@ya.ru");
-        owner = new User(2L, "owner", "owner@ya.ru");
+        User owner = new User(2L, "owner", "owner@ya.ru");
         userRepository.save(user);
         userRepository.save(owner);
         userRepository.save(user2);
-        request = new ItemRequest(1L, "req1", user, LocalDateTime.now());
+        ItemRequest request = new ItemRequest(1L, "req1", user, LocalDateTime.now());
         itemRequestRepository.save(request);
         item = new Item(1L, "item", "desc", true, owner, request);
         itemRepository.save(item);
-        booking = new Booking(
+        Booking booking = new Booking(
                 1L,
                 LocalDateTime.now().minusDays(2),
                 LocalDateTime.now().minusDays(1),
                 item,
                 user,
                 Status.WAITING);
-        booking2 = new Booking(
+        Booking booking2 = new Booking(
                 2L,
                 LocalDateTime.now().plusDays(1),
                 LocalDateTime.now().plusDays(2),

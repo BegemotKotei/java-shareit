@@ -27,16 +27,16 @@ import static org.mockito.Mockito.when;
 @RequiredArgsConstructor
 class UserServiceImplTest {
 
-    UserService userService;
+    protected UserService userService;
 
     @Autowired
-    EntityMapper mapper;
+    protected EntityMapper mapper;
 
     @MockBean
-    UserRepository userRepository;
+    protected UserRepository userRepository;
 
-    User user;
-    UserDto userDto;
+    protected User user;
+    protected UserDto userDto;
 
     @BeforeEach
     void beforeEach() {

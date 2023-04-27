@@ -18,7 +18,7 @@ class AnswerItemRequestDtoTest {
     @Autowired
     private JacksonTester<AnswerItemRequestDto> json;
 
-    LocalDateTime created = LocalDateTime.of(2023, 4, 10, 10, 10, 10);
+    protected LocalDateTime created = LocalDateTime.of(2023, 4, 10, 10, 10, 10);
 
     private final ItemDto itemDto = new ItemDto(
             1L,

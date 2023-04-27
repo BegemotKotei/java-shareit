@@ -28,14 +28,14 @@ class CommentRepositoryTest {
     @Autowired
     private ItemRepository itemRepository;
 
-    Comment comment10;
-    Comment comment11;
-    Comment comment20;
-    Comment comment21;
-    User user1;
-    User user2;
-    Item item1;
-    Item item2;
+    protected Comment comment10;
+    protected Comment comment11;
+    protected Comment comment20;
+    protected Comment comment21;
+    protected User user1;
+    protected User user2;
+    protected Item item1;
+    protected Item item2;
 
     @BeforeAll
     public void beforeAll() {

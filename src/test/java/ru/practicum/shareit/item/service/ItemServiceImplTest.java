@@ -45,39 +45,39 @@ import static ru.practicum.shareit.booking.model.Status.APPROVED;
 @RequiredArgsConstructor
 class ItemServiceImplTest {
 
-    ItemService itemService;
+    protected ItemService itemService;
 
     @Autowired
-    UserService userService;
+    protected UserService userService;
 
     @MockBean
-    BookingRepository bookingRepository;
+    protected BookingRepository bookingRepository;
 
     @MockBean
-    CommentRepository commentRepository;
+    protected CommentRepository commentRepository;
 
     @MockBean
-    ItemRepository itemRepository;
+    protected ItemRepository itemRepository;
 
     @MockBean
-    UserRepository userRepository;
+    protected UserRepository userRepository;
 
     @MockBean
-    ItemRequestRepository itemRequestRepository;
+    protected ItemRequestRepository itemRequestRepository;
 
     @Autowired
-    EntityMapper mapper;
+    protected EntityMapper mapper;
 
-    User user1;
-    User user2;
-    UserDto userDto1;
-    Item item1;
-    Item item2;
-    ItemDto itemDto1;
-    ItemRequest request1;
-    Booking booking1;
-    Booking booking2;
-    Pageable pageable;
+    protected User user1;
+    protected User user2;
+    protected UserDto userDto1;
+    protected Item item1;
+    protected Item item2;
+    protected ItemDto itemDto1;
+    protected ItemRequest request1;
+    protected Booking booking1;
+    protected Booking booking2;
+    protected Pageable pageable;
 
     @BeforeEach
     void beforeEach() {

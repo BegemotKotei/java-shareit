@@ -39,29 +39,24 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class BookingControllerTest {
 
     @MockBean
-    BookingService bookingService;
+    private BookingService bookingService;
 
     @Autowired
     private MockMvc mockMvc;
 
     @Autowired
-    ObjectMapper mapper;
+    private ObjectMapper mapper;
 
-    User user;
-    User owner;
-    Item item;
-    UserDto userDto;
-    ItemDto itemDto;
-    AnswerBookingDto answerBookingDto;
-    BookingDto bookingDto;
+    private AnswerBookingDto answerBookingDto;
+    private BookingDto bookingDto;
 
     @BeforeEach
     void beforeEach() {
-        user = new User(1L, "user", "user@ya.ru");
-        owner = new User(2L, "owner", "owner@ya.ru");
-        item = new Item(1L, "item", "desc", true, owner, null);
-        userDto = new UserDto(1L, "user", "user@ya.ru");
-        itemDto = new ItemDto(1L, "item", "desc", true, owner, null);
+        //User user = new User(1L, "user", "user@ya.ru");
+        User owner = new User(2L, "owner", "owner@ya.ru");
+        //Item item = new Item(1L, "item", "desc", true, owner, null);
+        UserDto userDto = new UserDto(1L, "user", "user@ya.ru");
+        ItemDto itemDto = new ItemDto(1L, "item", "desc", true, owner, null);
         answerBookingDto = new AnswerBookingDto(
                 1L,
                 LocalDateTime.now().plusHours(1),

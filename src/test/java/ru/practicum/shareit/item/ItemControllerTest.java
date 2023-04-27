@@ -39,18 +39,18 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class ItemControllerTest {
 
     @MockBean
-    ItemService itemService;
+    protected ItemService itemService;
 
     @Autowired
     private MockMvc mockMvc;
 
     @Autowired
-    ObjectMapper mapper;
+    protected ObjectMapper mapper;
 
-    User owner;
-    UserDto ownerDto;
-    ItemDto itemDto;
-    AnswerItemDto answerItemDto;
+    protected User owner;
+    protected UserDto ownerDto;
+    protected ItemDto itemDto;
+    protected AnswerItemDto answerItemDto;
 
     @BeforeEach
     void beforeEach() {

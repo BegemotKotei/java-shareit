@@ -31,14 +31,14 @@ class ItemRepositoryTest {
     @Autowired
     private ItemRequestRepository itemRequestRepository;
 
-    User user1;
-    User user2;
-    Item item1;
-    Item item2;
-    Item item3;
-    ItemRequest request1;
-    ItemRequest request2;
-    Pageable pageable = PageRequest.of(0, 10);
+    protected User user1;
+    protected User user2;
+    protected Item item1;
+    protected Item item2;
+    protected Item item3;
+    protected ItemRequest request1;
+    protected ItemRequest request2;
+    protected Pageable pageable = PageRequest.of(0, 10);
 
     @BeforeAll
     public void beforeAll() {
