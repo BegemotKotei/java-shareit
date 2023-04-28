@@ -20,4 +20,5 @@ public interface ItemService {
     List<ItemDto> getAvailableItems(Long userId, String text, Pageable pageable);
 
     CommentDto createComment(Long itemId, Long userId, CommentDto commentDto);
+
 }

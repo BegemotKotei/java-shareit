@@ -21,4 +21,5 @@ public class AnswerItemDto {
     private InfoBookingDto lastBooking;
     private InfoBookingDto nextBooking;
     private List<CommentDto> comments;
+
 }

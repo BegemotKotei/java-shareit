@@ -39,4 +39,5 @@ public class ErrorHandler {
     public ErrorResponse unsupportedState(final UnsupportedState e) {
         return new ErrorResponse(e.getMessage());
     }
+
 }
