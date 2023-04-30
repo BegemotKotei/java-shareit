@@ -1,5 +1,6 @@
 package ru.practicum.shareit.item.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import ru.practicum.shareit.booking.dto.InfoBookingDto;
@@ -9,6 +10,7 @@ import java.util.List;
 
 @Data
 @Builder
+@AllArgsConstructor
 public class AnswerItemDto {
     private Long id;
     private String name;
@@ -19,4 +21,5 @@ public class AnswerItemDto {
     private InfoBookingDto lastBooking;
     private InfoBookingDto nextBooking;
     private List<CommentDto> comments;
+
 }
