@@ -160,7 +160,7 @@ class ItemServiceImplTest {
         when(itemRepository.findById(anyLong())).thenReturn(Optional.of(item1));
         when(commentRepository.findAllByItem_Id((anyLong()))).thenReturn(List.of());
         when(bookingRepository.findFirstByItem_IdAndItem_Owner_IdAndStartIsBefore(anyLong(), anyLong(), any(), any()))
-                .thenReturn(Optional.ofNullable(booking1));
+                .thenReturn(booking1);
         when(bookingRepository.findFirstByItem_IdAndItem_Owner_IdAndStartIsAfterAndStatusIsNotAndStatusIsNot(
                 anyLong(), anyLong(), any(), any(), any(), any())).thenReturn(booking2);
 

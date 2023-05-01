@@ -34,8 +34,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-import static ru.practicum.shareit.exceptions.EntityNotFoundException.entityNotFoundException;
-
 @Slf4j
 @Service
 @AllArgsConstructor
@@ -100,7 +98,7 @@ public class ItemServiceImpl implements ItemService {
                         itemId,
                         userId,
                         now,
-                        SORT_DESC).orElseThrow(entityNotFoundException("Item with ID " + itemId + " does not exist")));
+                        SORT_DESC));
 
         InfoBookingDto nextBooking = mapper.toInfoBookingDto(bookingRepository
                 .findFirstByItem_IdAndItem_Owner_IdAndStartIsAfterAndStatusIsNotAndStatusIsNot(
