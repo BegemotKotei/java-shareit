@@ -25,6 +25,7 @@ services:
       - DB_PORT=5432
       - POSTGRES_USER=shareit
       - POSTGRES_PASSWORD=shareit
+    restart: on-failure
 
   db:
     image: postgres:13.7-alpine
