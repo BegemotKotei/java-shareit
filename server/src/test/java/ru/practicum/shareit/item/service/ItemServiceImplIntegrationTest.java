@@ -38,7 +38,7 @@ class ItemServiceImplIntegrationTest {
     private BookingRepository bookingRepository;
 
     @Autowired
-    private CommentRepository commentRepository;
+    protected CommentRepository commentRepository;
 
     @Autowired
     private ItemRepository itemRepository;
