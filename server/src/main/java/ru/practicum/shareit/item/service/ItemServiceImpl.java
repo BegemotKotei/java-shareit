@@ -98,7 +98,7 @@ public class ItemServiceImpl implements ItemService {
                         itemId,
                         userId,
                         now,
-                        SORT_DESC).orElseThrow());
+                        SORT_DESC));
 
         InfoBookingDto nextBooking = mapper.toInfoBookingDto(bookingRepository
                 .findFirstByItem_IdAndItem_Owner_IdAndStartIsAfterAndStatusIsNotAndStatusIsNot(
